@@ -9,13 +9,15 @@ import (
 	"github.com/andynesse/go-pokedex/internal/commands"
 	"github.com/andynesse/go-pokedex/internal/config"
 	"github.com/andynesse/go-pokedex/internal/pokecache"
+	"github.com/andynesse/go-pokedex/internal/pokedex"
 	"github.com/andynesse/go-pokedex/internal/repl"
 )
 
 func main() {
 	config := config.Config{
-		Next:  "https://pokeapi.co/api/v2/location-area/",
-		Cashe: pokecache.NewCache(5 * time.Second),
+		Next:    "https://pokeapi.co/api/v2/location-area/",
+		Cashe:   pokecache.NewCache(5 * time.Second),
+		Pokedex: *pokedex.NewPokedex(),
 	}
 
 	scanner := bufio.NewScanner(os.Stdin)

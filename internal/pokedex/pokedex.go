@@ -1,19 +1,31 @@
 package pokedex
 
-type pokemon struct {
-	Name string
+type Pokemon struct {
+	Name   string
+	Height int
+	Weight int
+	Stats  map[string]int
+	Types  []string
 }
 
 type Pokedex struct {
-	Pokemon []pokemon
+	Pokemon map[string]Pokemon
 }
 
-func (p *Pokedex) Add(name string) {
-	if name == "" {
-		return
+func NewPokedex() *Pokedex {
+	pokedex := Pokedex{
+		Pokemon: make(map[string]Pokemon),
 	}
-	pokemon := pokemon{
-		Name: name,
+	return &pokedex
+}
+
+func (p *Pokedex) Add(name string, height, weight int, stats map[string]int, types []string) {
+	newPokemon := Pokemon{
+		Name:   name,
+		Height: height,
+		Weight: weight,
+		Stats:  stats,
+		Types:  types,
 	}
-	p.Pokemon = append(p.Pokemon, pokemon)
+	p.Pokemon[name] = newPokemon
 }
