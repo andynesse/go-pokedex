@@ -28,6 +28,19 @@ func commandCatch(config *config.Config) error {
 	var pokemon struct {
 		Name           string `json:"name"`
 		BaseExperience int    `json:"base_experience"`
+		Height         int    `json:"height"`
+		Weight         int    `json:"weight"`
+		Stats          []struct {
+			BaseStat int `json:"base_stat"`
+			Stat     struct {
+				Name string `json:"name"`
+			}
+		}
+		Types []struct {
+			Type struct {
+				Name string `json:"name"`
+			}
+		}
 	}
 	if err := json.Unmarshal(data, &pokemon); err != nil {
 		return err
@@ -39,6 +52,17 @@ func commandCatch(config *config.Config) error {
 		return nil
 	}
 	fmt.Printf("%s was caught!\n", pokemon.Name)
-	config.Pokedex.Add(pokemon.Name)
+	if _, exists := config.Pokedex.Pokemon[pokemon.Name]; exists {
+		return nil
+	}
+	stats := make(map[string]int)
+	for _, stat := range pokemon.Stats {
+		stats[stat.Stat.Name] = stat.BaseStat
+	}
+	types := []string{}
+	for _, t := range pokemon.Types {
+		types = append(types, t.Type.Name)
+	}
+	config.Pokedex.Add(pokemon.Name, pokemon.Height, pokemon.Weight, stats, types)
 	return nil
 }
