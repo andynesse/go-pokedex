@@ -37,6 +37,11 @@ func init() {
 		Description: "Displays a list of pokemon located at the given area",
 		Callback:    commandExplore,
 	}
+	commands["catch"] = cliCommand{
+		Name:        "catch",
+		Description: "Catch a pokemon",
+		Callback:    commandCatch,
+	}
 }
 
 func GetCommand(key string) (cliCommand, bool) {
