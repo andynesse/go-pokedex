@@ -1,6 +1,6 @@
 package commands
 
-import "github.com/andynesse/go-pokedex/internal/config"
+import "github.com/andynesse/go-pokedex/pkg/config"
 
 type cliCommand struct {
 	Name        string

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/andynesse/go-pokedex/internal/config"
+	"github.com/andynesse/go-pokedex/pkg/config"
 )
 
 func commandExit(config *config.Config) error {

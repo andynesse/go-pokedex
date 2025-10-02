@@ -3,7 +3,7 @@ package commands
 import (
 	"fmt"
 
-	"github.com/andynesse/go-pokedex/internal/config"
+	"github.com/andynesse/go-pokedex/pkg/config"
 )
 
 func commandInspect(config *config.Config) error {

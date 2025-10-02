@@ -8,7 +8,7 @@ import (
 	"math/rand"
 	"net/http"
 
-	"github.com/andynesse/go-pokedex/internal/config"
+	"github.com/andynesse/go-pokedex/pkg/config"
 )
 
 func commandCatch(config *config.Config) error {

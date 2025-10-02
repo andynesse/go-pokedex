@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/andynesse/go-pokedex/internal/config"
+	"github.com/andynesse/go-pokedex/pkg/config"
 )
 
 func commandExplore(config *config.Config) error {
