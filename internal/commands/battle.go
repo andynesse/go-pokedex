@@ -25,6 +25,6 @@ func commandBattle(config *config.Config) error {
 			"fighting",
 		},
 	}
-	battle.GameLoop(config, pokemon)
+	battle.Start(config, pokemon)
 	return fmt.Errorf("battle ended")
 }

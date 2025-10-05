@@ -6,8 +6,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/andynesse/go-pokedex/pkg/config"
 	"github.com/andynesse/go-pokedex/internal/pokecache"
+	"github.com/andynesse/go-pokedex/pkg/config"
 )
 
 type area struct {
