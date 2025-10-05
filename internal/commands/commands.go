@@ -52,6 +52,11 @@ func init() {
 		Description: "Displays a list of your caught pokemon",
 		Callback:    commandPokedex,
 	}
+	commands["battle"] = cliCommand{
+		Name:        "battle",
+		Description: "Starts a battle with a pokemon",
+		Callback:    commandBattle,
+	}
 }
 
 func GetCommand(key string) (cliCommand, bool) {
